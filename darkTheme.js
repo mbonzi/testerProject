@@ -6,7 +6,7 @@ const myDarkTheme = () => {
       primary: '#9933ff',
       background: '#000023',
       card: '#000028',
-      text: '#ffffff',
+      text: '#444fff',
       border: '#000028',
       notification: '#9933ff',
     },
