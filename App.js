@@ -1,14 +1,16 @@
-import React from "react";
+import React, { Component } from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import HomeStackNavigator from "./src/navigators/MainNavigation";
  
-function App() {
+class App extends Component {
+
+  render(){
 
   return (
     <NavigationContainer>
       <HomeStackNavigator />
     </NavigationContainer>
   );
-}
+}}
 
 export default App;

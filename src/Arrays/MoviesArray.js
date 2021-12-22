@@ -22,5 +22,5 @@ export const MOVIES = [
     category: "Biography",
     language: "English",
     year: 2018,
-  },
+  }
 ];

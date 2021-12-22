@@ -1,42 +1,36 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
-import MOVIES from '../Arrays/MoviesArray';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { Component } from 'react';
+import { FlatList } from 'react-native';
+import { ListItem, Card } from 'react-native-elements';
+import { MOVIES } from '../Arrays/MoviesArray';
 
+class HomeScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      movies: MOVIES,
+    };
+  }
 
-const renderMovie = ({ item }) => {
-  return (
-    <View>
-      <ListItem
+  render() {
+    const renderMovie = ({ item }) => {
+      return (
+        <ListItem
           title={item.title}
           subtitle={item.director}
-          onPress={item.id}
-          leftAvatar = {{ source: require('../images/shark.jpg')}}
         />
-    </View>
-  );
-};
+      );
+    };
 
-export default function HomeScreen() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <Text style={styles.textColor}>Welcome!!</Text>
-        <FlatList 
-          data={MOVIES} 
-          renderItem={renderMovie} 
+    return (
+      <Card title="Movie Catalogue">
+        <FlatList
+          data={this.state.movies}
+          renderItem={renderMovie}
           keyExtractor={(item) => item.id.toString()}
         />
-      </View>
-    </SafeAreaView>
-  );
+      </Card>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  textColor: {
-    color: 'teal',
-  },
-}); 
+export default HomeScreen;
